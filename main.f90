@@ -1,25 +1,31 @@
 program main
     implicit none
-    !character*10 :: name
-    real, dimension(20) :: tempArray
-    integer, dimension(20) :: oddArray
-    integer, dimension(20) :: evenArray
-    integer, dimension(20) :: xArray
-    real, dimension(20) :: rArray
+    real, dimension(20)::fArray
+
+    integer, dimension(20)::eArray
+    integer, dimension(20)::oArray
     integer::evenCounter = 0
     integer::oddCounter = 0
     integer::realCounter = 0
+
+    integer, dimension(20)::xArray
     integer::n = 0
 
-    !read(*,*) name
-    call ReadFromFile("dados.dat",tempArray)
-    call OddEven(tempArray,oddArray,evenArray,oddCounter,evenCounter,rArray,realCounter)
-    call Sorting(oddArray,int(oddArray))
-    call Sorting(evenArray,int(evenArray))
-    call Sorting(rArray,rArray)
-    call x(xArray,oddArray,evenArray,oddCounter,evenCounter,n)
-    call SaveToFile("resultados.dat",xArray,evenCounter,oddCounter,n)
-    call printer(oddArray,evenArray,xArray,evenCounter,oddCounter,n)
+    call ReadFromFile("numeros.dat",fArray)
+
+    do n = 1,20,1
+        print*, fArray(n)
+    end do
+
+    call OddEven(fArray,eArray,evenCounter,oArray,oddCounter,realCounter)
+
+    call Sorting(eArray,eArray)
+    call Sorting(oArray,oArray)
+
+    call x(xArray,oArray,eArray,oddCounter,evenCounter,n)
+
+    !call SaveToFile("resultados.dat",xArray,evenCounter,oddCounter,n)
+
     print*, system("pause")
 end program
 

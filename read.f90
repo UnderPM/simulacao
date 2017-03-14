@@ -1,7 +1,7 @@
 
 subroutine ReadFromFile(filename,oArray)
     implicit none
-    character*9, intent(in) :: filename
+    character*11, intent(in) :: filename
     real, dimension(20), intent(out) :: oArray
     integer :: index = 1
 
@@ -13,6 +13,6 @@ subroutine ReadFromFile(filename,oArray)
     open(unit=10,file=filename)
 
     do index = 1,20
-        read(10,*) oArray(index)
+        read (10,*) oArray(index)
     end do
 end subroutine

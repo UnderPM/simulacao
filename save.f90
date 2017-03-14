@@ -5,7 +5,7 @@ subroutine SaveToFile(filename,xArray,evenCounter,oddCounter,n)
     integer, intent(in)::evenCounter
     integer, intent(in)::n
     integer, dimension(n), intent(in)::xArray
-    integer :: index = 1
+    integer :: index = 0
 
     open(unit=10,file=filename)
 
