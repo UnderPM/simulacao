@@ -1,15 +1,16 @@
 subroutine Sorting(iArray,oArray)
     implicit none
-    real, dimension(20), intent(in) :: iArray
-    real, dimension(20) :: iArrayCopy
-    real, dimension(20), intent(out) :: oArray
-    real :: temp
-    integer :: aindex = 1
-    integer :: index2 = 1
+    integer, dimension(20), intent(in) :: iArray
+    integer, dimension(20) :: iArrayCopy
+    integer, dimension(20), intent(out) :: oArray
+    integer :: temp
+    integer :: aindex = 0
+    integer :: index2 = 0
 
     !initialize iArrayCopy
     do aindex = 1,20
         iArrayCopy(aindex) = iArray(aindex)
+        oArray(aindex) = -999
     end do
 
     !initialize oArray

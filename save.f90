@@ -1,21 +1,17 @@
-subroutine SaveToFile(filename,xArray,evenCounter,oddCounter,n)
+subroutine SaveToFile(filename,xArray,n,eArray,oArray)
     implicit none
     character*14, intent(in) :: filename
-    integer, intent(in)::oddCounter
-    integer, intent(in)::evenCounter
     integer, intent(in)::n
-    integer, dimension(n), intent(in)::xArray
-    integer :: index = 1
+    integer, dimension(20), intent(in)::eArray
+    integer, dimension(20), intent(in)::oArray
+    real, dimension(20), intent(in)::xArray
+    integer :: index = 0
 
     open(unit=10,file=filename)
 
-    write(10,*) "Numeros Pares:"
-    write(10,*) evenCounter
-    write(10,*) "Numeros Impares:"
-    write(10,*) oddCounter
-    write(10,*) "X:"
+    write(10,*) "X:                   Pares:            Impares:"
 
     do index = 1,n,1
-        write(10,*) xArray(index)
+        write(10,*) xArray(index), "   ", eArray(index), "   ", oArray(index)
     end do
 end subroutine
